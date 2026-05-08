@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -158,3 +159,165 @@
   <script src="script.js"></script>
 </body>
 </html>
+=======
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Weather Dashboard</title>
+  <link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+  <!-- ── LOGIN MODAL ───────────────────────────────────────── -->
+  <div id="loginModal" class="modal">
+    <div class="modal-container">
+      <div class="modal-box">
+        <div class="modal-header">
+          <h2>🌤 Weather Dashboard</h2>
+          <p class="modal-sub">Real-time weather at your fingertips</p>
+        </div>
+
+        <div class="auth-form">
+          <input type="email" id="loginEmail" placeholder="your@email.com" class="input-field" />
+          <input type="password" id="loginPassword" placeholder="Password" class="input-field" />
+
+          <button id="loginBtn" onclick="loginUser()" class="btn btn-primary">
+            <span class="btn-icon">🔓</span> Sign In
+          </button>
+
+          <div class="divider">or</div>
+
+          <button class="btn btn-secondary" onclick="registerUser()">
+            <span class="btn-icon">✏️</span> Create Account
+          </button>
+
+          <button class="btn btn-ghost" onclick="skipLogin()">
+            Continue as Guest
+          </button>
+
+          <p id="authError" class="error-msg"></p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── MAIN APP ───────────────────────────────────────────── -->
+  <div class="app-container" id="mainApp" style="display:none">
+
+    <!-- Header bar -->
+    <header class="topbar">
+      <div class="topbar-left">
+        <h1 class="app-title">🌤 Weather</h1>
+      </div>
+      <div class="topbar-right">
+        <span id="userLabel" class="user-badge"></span>
+        <button class="btn btn-sm" onclick="logout()" id="logoutBtn" style="display:none">
+          🚪 Sign Out
+        </button>
+      </div>
+    </header>
+
+    <!-- Main content wrapper -->
+    <main class="main-content">
+
+      <!-- Search section -->
+      <section class="search-section">
+        <div class="search-box">
+          <input
+            type="text"
+            id="cityInput"
+            placeholder="Search city..."
+            class="search-input"
+            onkeydown="if(event.key==='Enter') getWeather()"
+          />
+          <button id="micBtn" title="Search by voice" onclick="startVoice()" class="btn-icon-only">
+            🎙️
+          </button>
+          <button id="searchBtn" onclick="getWeather()" class="btn btn-search">
+            Search
+          </button>
+        </div>
+
+        <!-- Voice status -->
+        <p id="voiceStatus" class="voice-status"></p>
+      </section>
+
+      <!-- Weather result card -->
+      <section class="weather-result" id="weatherInfo" style="display:none">
+        <div class="weather-header">
+          <h2 id="cityName" class="city-title"></h2>
+        </div>
+
+        <div class="weather-grid">
+          <div class="weather-card">
+            <div class="card-icon">🌡️</div>
+            <div class="card-label">Temperature</div>
+            <div id="temperature" class="card-value"></div>
+          </div>
+
+          <div class="weather-card">
+            <div class="card-icon">☁️</div>
+            <div class="card-label">Condition</div>
+            <div id="description" class="card-value"></div>
+          </div>
+
+          <div class="weather-card">
+            <div class="card-icon">💧</div>
+            <div class="card-label">Humidity</div>
+            <div id="humidity" class="card-value"></div>
+          </div>
+
+          <div class="weather-card">
+            <div class="card-icon">🌬️</div>
+            <div class="card-label">Wind Speed</div>
+            <div id="windSpeed" class="card-value"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Search history -->
+      <section id="historySection" class="history-section" style="display:none">
+        <div class="history-header">
+          <h3>📋 Recent Searches</h3>
+        </div>
+        <ul id="historyList" class="history-list"></ul>
+      </section>
+
+    </main>
+
+  </div>
+
+  <!-- ── CHATBOT WIDGET ─────────────────────────────────────── -->
+  <div id="chatWidget" class="chat-widget">
+    <button id="chatToggle" onclick="toggleChat()" class="chat-toggle" title="Open weather bot">
+      💬
+    </button>
+    <div id="chatBox" class="chat-box" style="display:none">
+      <div class="chat-header">
+        <span class="chat-title">🤖 Weather Bot</span>
+        <button class="chat-close" onclick="toggleChat()">✕</button>
+      </div>
+      <div id="chatMessages" class="chat-messages">
+        <div class="bot-msg">
+          👋 Hi! Ask me about weather anywhere. Try: <em>"Weather in Tokyo"</em>
+        </div>
+      </div>
+      <div class="chat-input-area">
+        <input
+          type="text"
+          id="chatInput"
+          placeholder="Ask about weather..."
+          class="chat-input"
+          onkeydown="if(event.key==='Enter') sendChat()"
+        />
+        <button onclick="sendChat()" class="btn-send">Send</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>
+>>>>>>> d7b7a0b1165e91474a941c07d26f1c62d257a5a5

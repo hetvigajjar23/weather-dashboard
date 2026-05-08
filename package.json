@@ -11,10 +11,14 @@
     "start": "node server.js"
   },
   "dependencies": {
+<<<<<<< HEAD
     "@ibm-cloud/cloudant": "^0.12.19",
     "ibm-cloud-sdk-core": "^5.4.12",
     "express": "^5.1.0",
     "ibm-watson": "^12.2.0",
+=======
+    "express": "^5.1.0",
+>>>>>>> d7b7a0b1165e91474a941c07d26f1c62d257a5a5
     "mysql2": "^3.15.3"
   }
 }
